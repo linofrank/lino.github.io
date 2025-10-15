@@ -1,337 +1,195 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3 Strategic Infographics Portfolio</title>
-    <!-- Chosen Palette: Deep Midnight Black (zinc-950) with Bright Accent Blue -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #09090b; /* zinc-950 for Midnight Dark Mode */
-            color: #f4f4f5; /* zinc-100 */
-        }
-        /* Custom styling for the deep dark theme */
-        .bg-card {
-            background-color: #18181b; /* zinc-900 */
-        }
-        .bg-inner {
-            background-color: #27272a; /* zinc-800 */
-        }
-        .text-default {
-            color: #f4f4f5; /* zinc-100 */
-        }
-        .text-muted {
-            color: #d4d4d8; /* zinc-300 */
-        }
-        .border-line {
-            border-color: #3f3f46; /* zinc-700 */
-        }
-        
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        .active-btn {
-            background-color: #60A5FA !important; /* blue-400 */
-            color: white !important;
-            box-shadow: 0 4px 10px -2px rgba(96, 165, 250, 0.5); /* Blue glow on active */
-        }
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Lino - Web3 Visual Strategist</title>  
+    <!-- Load Tailwind CSS CDN for modern styling -->  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <style>  
+        /* Custom styles for a dark, Web3-inspired look */  
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');  
+        body {  
+            font-family: 'Inter', sans-serif;  
+            background-color: #0d1117; /* Dark background, common in developer/crypto spaces */  
+            color: #e5e7eb;  
+        }  
+        .text-accent {  
+            color: #38bdf8; /* Sky blue accent color */  
+        }  
+        .bg-accent-gradient {  
+            background-image: linear-gradient(to right, #1d4ed8, #38bdf8); /* Blue gradient for CTA */  
+        }  
+        .project-card {  
+            transition: transform 0.3s, box-shadow 0.3s;  
+        }  
+        .project-card:hover {  
+            transform: translateY(-5px);  
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);  
+        }  
+        /* Custom animation for the header callout */  
+        @keyframes pulse-fade {  
+            0%, 100% { opacity: 0.7; }  
+            50% { opacity: 1; }  
+        }  
+        .ceo-callout {  
+            animation: pulse-fade 3s infinite;  
+        }  
+    </style>  
+</head>  
+<body class="bg-gray-900 min-h-screen antialiased">  <!-- Header & Navigation -->  
+<header class="p-4 md:px-8 shadow-lg bg-gray-900 sticky top-0 z-10 border-b border-gray-800">  
+    <div class="max-w-6xl mx-auto flex justify-between items-center">  
+        <div class="text-xl font-bold text-accent">LINO.VISUALS</div>  
+        <nav class="space-x-4">  
+            <a href="#projects" class="text-gray-400 hover:text-accent transition duration-200">Work</a>  
+            <a href="#expertise" class="text-gray-400 hover:text-accent transition duration-200">Expertise</a>  
+            <a href="#validation" class="text-gray-400 hover:text-accent transition duration-200">Validation</a>  
+            <!-- Direct link to your X profile for immediate contact -->  
+            <a href="https://x.com/franklino24" target="_blank" class="bg-accent-gradient text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition duration-200 shadow-md">  
+                DM Me on X  
+            </a>  
+        </nav>  
+    </div>  
+</header>  
 
-        /* Styles for the new "Complexity Visual" infographic */
-        .process-box {
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            font-size: 0.875rem;
-            text-align: center;
-            border: 1px solid #60A5FA;
-        }
-        .tangled-line {
-            width: 80%;
-            height: 2px;
-            background-color: #A1A1AA; /* zinc-400 */
-            border-radius: 1px;
-            position: absolute;
-        }
-        .simple-arrow {
-            width: 2rem;
-            height: 2px;
-            background-color: #4ADE80; /* emerald-400 */
-            margin: 0 auto;
-            position: relative;
-        }
-        .simple-arrow::after {
-            content: '';
-            position: absolute;
-            top: -3px;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-            border-left: 4px solid #4ADE80;
-        }
+<main class="max-w-6xl mx-auto p-4 md:p-8">  
 
-        /* Styles for the portfolio image placeholder/fallback */
-        .image-fallback-style {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 450px;
-            font-size: 18px;
-            font-weight: 600;
-            padding: 2rem;
-            text-align: center;
-        }
-    </style>
-</head>
-<body class="antialiased bg-zinc-950 text-zinc-100">
+    <!-- 1. Hero Section: Direct Value Proposition -->  
+    <section id="hero" class="text-center py-20 md:py-32">  
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight">  
+            LINO: <span class="text-accent block lg:inline">Translating Web3 Complexity</span>  
+            <span class="block">into Compelling Visuals.</span>  
+        </h1>  
+        <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">  
+            I design strategic **infographics** that demystify DeFi, DAOs, and blockchain systems for mass adoption and investor clarity.  
+        </p>  
+        <a href="#projects" class="bg-accent-gradient text-white px-8 py-3 text-lg rounded-xl font-bold hover:opacity-90 transition duration-300 transform hover:scale-105 inline-block shadow-lg">  
+            View Strategic Infographics  
+        </a>  
+    </section>  
 
-    <div class="container mx-auto px-4 py-8 md:py-16 max-w-6xl">
+    <!-- 2. Testimonial/Validation Section (A+ Credibility) -->  
+    <section id="validation" class="py-16">  
+        <div class="bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl border-2 border-accent/50 text-center">  
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-accent ceo-callout">  
+                CEO-VALIDATED WORK  
+            </h2>  
+            <blockquote class="text-xl md:text-2xl italic text-gray-200 mb-6 max-w-4xl mx-auto">  
+                "Lino's visual breakdown of our dual-token system was accurate and compelling. His work was reposted and validated by the CEO of **Helium ($HNT).**"  
+            </blockquote>  
+            <p class="text-gray-400 font-semibold">— Direct Validation from a leading DePIN Protocol Executive</p>  
+        </div>  
+    </section>  
 
-        <header class="text-center mb-16 md:mb-24">
-            <h1 class="text-4xl md:text-6xl font-black text-default mb-4 tracking-tight">Solving the Web3 Clarity Gap</h1>
-            <p class="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto">I’m **Lino**, a Strategic Infographics Designer. I turn complex Web3 systems into simple, visual stories that drive community understanding and consensus.</p>
-        </header>
+    <!-- 3. Projects Section: Real Project Content -->  
+    <section id="projects" class="py-16 border-t border-gray-800 mt-12">  
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">Featured Visual Strategies</h2>  
+          
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">  
+              
+            <!-- Project Card 1: Helium Dual-Token Model -->  
+            <div class="project-card bg-gray-800 p-6 rounded-xl shadow-2xl">  
+                <div class="h-48 bg-gray-700 rounded-lg mb-4 flex items-center justify-center text-accent text-2xl font-mono">  
+                    [ Dual-Token Model Flow ]  
+                </div>  
+                <h3 class="text-2xl font-semibold text-white mb-2">Helium ($HNT) Tokenomics Flow</h3>  
+                <p class="text-gray-400 mb-4">A CEO-validated visual strategy clarifying the complex HNT and Data Credits dual-token model for investor and community comprehension.</p>  
+                <span class="inline-block bg-blue-900 text-blue-300 text-xs font-medium px-3 py-1 rounded-full">DePIN/Tokenomics</span>  
+            </div>  
 
-        <main>
-            <!-- Challenge Section (Interactive Charts) -->
-            <section id="challenge" class="mb-16 md:mb-24">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-default">The Chain Migration RFP Challenge</h2>
-                    <p class="mt-4 text-lg text-zinc-300 max-w-3xl mx-auto">The current discussion highlights crucial trade-offs between Security, Liquidity, and Staking. My goal is to make these interconnected concepts tangible for every community member.</p>
-                </div>
-                
-                <div class="bg-card rounded-2xl shadow-xl p-6 md:p-10 border border-line">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <div>
-                            <h3 class="text-xl font-bold mb-4 text-default">Interactively Explore the Trade-offs:</h3>
-                            <p class="mb-6 text-zinc-300">Click a priority below to see how it affects the other factors. This interactive visualization immediately proves the value of clarity in complex decision-making.</p>
-                            <div id="tradeoff-controls" class="flex flex-wrap gap-3 mb-6">
-                                <button data-target="security" class="tradeoff-btn flex-1 text-center py-3 px-4 bg-zinc-800 text-zinc-200 font-semibold rounded-xl transition-all duration-300 hover:bg-zinc-700">Prioritize Security</button>
-                                <button data-target="liquidity" class="tradeoff-btn flex-1 text-center py-3 px-4 bg-zinc-800 text-zinc-200 font-semibold rounded-xl transition-all duration-300 hover:bg-zinc-700">Prioritize Liquidity</button>
-                                <button data-target="staking" class="tradeoff-btn flex-1 text-center py-3 px-4 bg-zinc-800 text-zinc-200 font-semibold rounded-xl transition-all duration-300 hover:bg-zinc-700">Prioritize Staking</button>
-                            </div>
-                            <div id="tradeoff-text" class="p-4 bg-inner rounded-xl min-h-[120px] border border-zinc-700">
-                                <h4 id="tradeoff-title" class="font-bold text-lg text-default">Select a Priority</h4>
-                                <p id="tradeoff-description" class="text-zinc-300 mt-1">Choose a focus area to understand its potential impact on the ecosystem's risk and reward profile.</p>
-                            </div>
-                        </div>
-                        <div class="chart-container bg-card p-2 rounded-lg">
-                            <canvas id="tradeoffsChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Strategic Infographic Section: Before & After -->
-            <section id="infographic" class="mb-16 md:mb-24">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-default">My Value: Simplifying the Process</h2>
-                    <p class="mt-4 text-lg text-zinc-300 max-w-3xl mx-auto">Protocols often face ambiguity in migration steps. My work turns confusion into a single, actionable roadmap.</p>
-                </div>
+            <!-- Project Card 2: Bittensor Subnet Flow -->  
+            <div class="project-card bg-gray-800 p-6 rounded-xl shadow-2xl">  
+                <div class="h-48 bg-gray-700 rounded-lg mb-4 flex items-center justify-center text-accent text-2xl font-mono">  
+                    [ Subnet Liquidity Flow ]  
+                </div>  
+                <h3 class="text-2xl font-semibold text-white mb-2">Bittensor ($TAO) $\text{d}\tau\text{ao}$ Liquidity</h3>  
+                <p class="text-gray-400 mb-4">Diagramming the entire liquidity flow from Subnet rewards through the d$\tau$ao staking mechanism for high-value B2B presentations.</p>  
+                <span class="inline-block bg-purple-900 text-purple-300 text-xs font-medium px-3 py-1 rounded-full">AI/DeFi System Mapping</span>  
+            </div>  
 
-                <div class="bg-card rounded-2xl shadow-xl p-6 md:p-10 border border-line">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Before State (Tangled) -->
-                        <div class="p-4 bg-inner rounded-xl border border-red-500/50">
-                            <h3 class="text-xl font-bold mb-6 text-red-400 text-center">BEFORE: Ambiguity and Risk</h3>
-                            <div class="flex flex-col items-center space-y-4 relative p-4">
-                                <!-- Nodes -->
-                                <div class="w-1/3 h-8 bg-zinc-600 rounded-full absolute top-4 left-4 transform -rotate-12"></div>
-                                <div class="w-1/2 h-8 bg-zinc-600 rounded-full absolute top-1/4 right-8 transform rotate-6"></div>
-                                <div class="w-2/5 h-8 bg-zinc-600 rounded-full absolute bottom-1/4 left-1/4 transform -rotate-2"></div>
-                                <div class="w-1/3 h-8 bg-zinc-600 rounded-full absolute bottom-8 right-12 transform rotate-12"></div>
-                                <!-- Tangled Lines -->
-                                <div class="tangled-line absolute top-12 left-1/4" style="transform: rotate(45deg); width: 60px;"></div>
-                                <div class="tangled-line absolute top-1/2 left-1/3" style="transform: rotate(-10deg); width: 100px;"></div>
-                                <div class="tangled-line absolute top-2/3 right-1/4" style="transform: rotate(80deg); width: 80px;"></div>
-                                <div class="tangled-line absolute top-1/4 left-1/2" style="transform: rotate(-30deg); width: 120px;"></div>
-                                <div class="tangled-line absolute bottom-1/4 left-1/2" style="transform: rotate(15deg); width: 90px;"></div>
-                                <p class="relative z-10 text-lg font-semibold mt-4 text-red-300">Conflicting Information & Stalled Decisions</p>
-                                <p class="text-sm text-zinc-400">Low engagement, high FUD, missed deadlines.</p>
-                            </div>
-                        </div>
+            <!-- Project Card 3: EigenLayer Restaking Strategy -->  
+            <div class="project-card bg-gray-800 p-6 rounded-xl shadow-2xl">  
+                <div class="h-48 bg-gray-700 rounded-lg mb-4 flex items-center justify-center text-accent text-2xl font-mono">  
+                    [ Restaking/Slashing Diagram ]  
+                </div>  
+                <h3 class="text-2xl font-semibold text-white mb-2">EigenLayer Restaking/Slashing Flow</h3>  
+                <p class="text-gray-400 mb-4">Clarifying the security model of pooled staked assets, demonstrating risk and reward pathways for a critical comms piece targeting AVS teams.</p>  
+                <span class="inline-block bg-green-900 text-green-300 text-xs font-medium px-3 py-1 rounded-full">Protocol Security/LSD</span>  
+            </div>  
+        </div>  
+    </section>  
 
-                        <!-- After State (Clarity) -->
-                        <div class="p-4 bg-inner rounded-xl border border-emerald-500/50">
-                            <h3 class="text-xl font-bold mb-6 text-emerald-400 text-center">AFTER: Clarity and Consensus</h3>
-                            <div class="flex flex-col items-center space-y-4">
-                                <div class="process-box bg-zinc-900 text-emerald-300 border-emerald-500">1. Define New Chain Trade-Offs</div>
-                                <div class="simple-arrow"></div>
-                                <div class="process-box bg-zinc-900 text-emerald-300 border-emerald-500">2. Model Ecosystem Migration Flow</div>
-                                <div class="simple-arrow"></div>
-                                <div class="process-box bg-zinc-900 text-emerald-300 border-emerald-500">3. Visualize Timeline & Steps (Infographic)</div>
-                                <div class="simple-arrow"></div>
-                                <div class="process-box bg-zinc-900 text-emerald-300 border-emerald-500">4. Community Adoption & Vote</div>
-                                <p class="text-lg font-semibold mt-4 text-emerald-300">A Single, Actionable Roadmap</p>
-                                <p class="text-sm text-zinc-400">High engagement, clear voting results, efficient execution.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- NEW Portfolio Section: Image Showcase -->
-            <section id="portfolio" class="mb-16 md:mb-24">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-default">Portfolio Showcase: Strategic Clarity in Action</h2>
-                    <p class="mt-4 text-lg text-zinc-300 max-w-3xl mx-auto">This is where complex mechanics, like the Hivemapper reward flow, are broken down into simple, high-impact visuals that drive adoption.</p>
-                </div>
-                <div class="bg-card rounded-2xl shadow-xl p-6 md:p-10 border border-line">
-                    <h3 class="text-2xl font-semibold mb-6 text-center text-blue-400">Featured Work: Hivemapper Honey Reward Flow</h3>
-                    
-                    <div class="max-w-4xl mx-auto">
-                        <img 
-                            src="https://drive.google.com/uc?export=view&id=1i1Nv5hofm9Ar9GQh6F8sSz_Z3s5NlvaC" 
-                            alt="Hivemapper Honey Reward Flow Infographic" 
-                            class="w-full h-auto rounded-xl shadow-2xl border border-zinc-700"
-                            onerror="this.onerror=null; this.src='https://placehold.co/1000x562/18181b/60A5FA?text=INFOGRAPHIC+ERROR%3A+Please+ensure+the+Google+Drive+link+is+set+to+%22Anyone+with+the+link%22.'; this.classList.add('image-fallback-style');"
-                        >
-                        <p class="text-center text-zinc-400 mt-4 text-sm">Infographic for the Hivemapper Protocol, designed to explain the token flow process from minting to the demand loop (Steps 1-6).</p>
-                    </div>
+    <!-- 4. Expertise Section: Detailed Skills -->  
+    <section id="expertise" class="py-16 border-t border-gray-800">  
+        <div class="text-center mb-12">  
+            <h2 class="text-4xl font-bold text-white mb-4">My Strategic Advantage</h2>  
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">  
+                I bridge the gap between complex Web3 technology and clear user communication.  
+            </p>  
+        </div>  
 
-                </div>
-            </section>
+        <div class="grid md:grid-cols-3 gap-8 text-center">  
+            <div class="p-6 bg-gray-800 rounded-xl">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v14L9 19zm0 0l-4 2.5V8.5L9 6v13zm12-4l-4-2.5v-6L21 9v6z" />  
+                </svg>  
+                <h3 class="text-xl font-semibold mb-2 text-white">System Mapping</h3>  
+                <p class="text-gray-400">Deep understanding of tokenomics, smart contract flows, and DeFi protocols necessary for accurate visual translation.</p>  
+            </div>  
+            <div class="p-6 bg-gray-800 rounded-xl">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2h-1v2H9v-2h-1c-1.657 0-3-.895-3-2s1.343-2 3-2h1V8h2zm-2 0V6m0 4v2m0 2v2m-3-6h2m-2 4h2m6-4h-2m2 4h-2m-3-8l12-3M4 18l12-3" />  
+                </svg>  
+                <h3 class="text-xl font-semibold mb-2 text-white">Visual Storytelling</h3>  
+                <p class="text-gray-400">Designing visuals that reduce cognitive load, making complex concepts easy to grasp for investors, users, and the community.</p>  
+            </div>  
+            <div class="p-6 bg-gray-800 rounded-xl">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />  
+                </svg>  
+                <h3 class="text-xl font-semibold mb-2 text-white">Data-Driven Design</h3>  
+                <p class="text-gray-400">Creating dynamic infographics and dashboards that effectively communicate real-time crypto market data and protocol metrics.</p>  
+            </div>  
+        </div>  
+    </section>  
 
-            <!-- Proof of Value (Helium Case Study) -->
-            <section id="proof" class="mb-16 md:mb-24">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-default">Proof of Value: The Helium Case</h2>
-                    <p class="mt-4 text-lg text-zinc-300 max-w-3xl mx-auto">This approach has a proven track record. My work helped the Helium ecosystem solve a major tokenomics clarity gap, earning a repost from their CEO and significantly boosting community engagement.</p>
-                </div>
-                 <div class="bg-card rounded-2xl shadow-xl p-6 md:p-10 border border-line">
-                    <h3 class="text-xl font-bold mb-6 text-center text-default">Impact of Strategic Visualization on Community Engagement</h3>
-                    <div class="chart-container bg-card p-2 rounded-lg h-[300px] md:h-[400px]">
-                        <canvas id="heliumChart"></canvas>
-                    </div>
-                </div>
-            </section>
+    <!-- 5. Contact Section -->  
+    <section id="contact" class="py-16 border-t border-gray-800">  
+        <div class="max-w-xl mx-auto text-center">  
+            <h2 class="text-4xl font-bold text-white mb-4">Let's Build the Next Narrative</h2>  
+            <p class="text-xl text-gray-400 mb-8">  
+                Have a complex Web3 system that needs clear, strategic visual communication? Reach out—I'm ready to craft the perfect infographic.  
+            </p>  
 
-            <!-- Proposal & CTA (UPDATED TO DIRECT CONTACT) -->
-            <section id="contact" class="bg-card rounded-2xl shadow-2xl p-8 md:p-12 border border-blue-600/50 text-center">
-                <!-- Title -->
-                <h2 class="text-3xl md:text-4xl font-black text-default mb-4">Let's Build the Next Narrative</h2>
-                
-                <!-- Subhead -->
-                <p class="mt-4 text-lg text-zinc-300 max-w-3xl mx-auto">Have a complex Web3 system that needs clear, strategic visual communication? Reach out—I'm ready to craft the perfect infographic.</p>
+            <p class="text-lg text-white mb-6">  
+                The fastest way to reach me is directly on X:  
+            </p>  
 
-                <div class="mt-10 max-w-xl mx-auto">
-                    <!-- PRIMARY CTA: DM on X -->
-                    <p class="text-xl font-semibold text-blue-400 mb-4">The fastest way to reach me is directly on X:</p>
-                    <a href="https://x.com/franklino24" target="_blank" class="w-full inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl shadow-lg text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200 active-btn">
-                        DM Lino on X (@franklino24)
-                    </a>
-                    
-                    <p class="text-center text-zinc-500 mt-6 mb-6">— OR —</p>
+            <!-- Prominent X Link in Contact Section -->  
+            <a href="https://x.com/franklino24" target="_blank" class="w-full inline-block bg-accent-gradient text-white px-6 py-3 rounded-lg font-bold text-lg hover:opacity-90 transition duration-300 shadow-xl mb-8">  
+                DM Lino on X (franklino24)  
+            </a>  
 
-                    <!-- SECONDARY CTA: Email Form (Visual Mock-up) -->
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Please use the X DM link above for the fastest response. This form is a visual mock-up.');">
-                        <div>
-                            <input type="text" placeholder="Your Name" class="w-full p-3 rounded-xl bg-inner border border-zinc-700 placeholder-zinc-400 text-default focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Your Work Email Address" class="w-full p-3 rounded-xl bg-inner border border-zinc-700 placeholder-zinc-400 text-default focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <textarea placeholder="I want to simplify my protocol (Project Inquiry)" rows="3" class="w-full p-3 rounded-xl bg-inner border border-zinc-700 placeholder-zinc-400 text-default focus:border-blue-500 focus:ring-1 focus:ring-blue-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-4 mt-4 text-lg font-bold rounded-xl text-default bg-zinc-700 hover:bg-zinc-600 transition-colors duration-200">
-                            Send Inquiry (DM on X preferred)
-                        </button>
-                    </form>
-                </div>
-            </section>
-        </main>
-        
-        <footer class="text-center mt-16 md:mt-24 pt-8 border-t border-line">
-             <p class="text-zinc-400">Built by Lino | Strategic Infographics Designer</p>
-        </footer>
-    </div>
+            <!-- Mock Contact Form (kept for professional look, though X is the primary CTA) -->  
+            <form class="space-y-4">  
+                <input type="text" placeholder="Your Name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-accent focus:border-accent" required>  
+                <input type="email" placeholder="Your Work Email Address" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-accent focus:border-accent" required>  
+                <textarea rows="4" placeholder="How can I help you visualize your Web3 project?" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-accent focus:border-accent" required></textarea>  
+                <button type="submit" class="w-full bg-gray-700 text-gray-400 px-6 py-3 rounded-lg font-bold text-lg cursor-not-allowed" disabled>  
+                    Send Inquiry (DM on X preferred)  
+                </button>  
+            </form>  
+        </div>  
+    </section>  
 
-    <script>
-        // Data and Initialization for Charts (remains the same)
-        const tradeOffsData = {
-            default: {
-                title: 'Select a Priority',
-                description: 'Choose a focus area to understand its potential impact on the ecosystem.',
-                chartData: [5, 5, 5]
-            },
-            security: {
-                title: 'Priority: Maximum Security',
-                description: 'A high focus on security can lead to more rigorous validator requirements and slower finality, potentially reducing transaction speed and immediate liquidity.',
-                chartData: [9, 4, 6]
-            },
-            liquidity: {
-                title: 'Priority: Maximum Liquidity',
-                description: 'Prioritizing liquidity often means lower barriers to entry and faster bridging, which might introduce complexities in security models and staking incentives.',
-                chartData: [6, 9, 7]
-            },
-            staking: {
-                title: 'Priority: Maximum Staking Rewards',
-                description: 'Encouraging staking with high rewards is great for network security, but can lock up capital, thus reducing the freely circulating liquidity available for DeFi.',
-                chartData: [7, 5, 9]
-            }
-        };
+</main>  
 
-        let tradeoffsChart;
-        const chartTextColor = '#f4f4f5'; // zinc-100
-        const chartGridColor = '#3f3f46'; // zinc-700
-        const chartBackdropColor = '#18181b'; // zinc-900
+<!-- Footer -->  
+<footer class="p-4 md:p-8 bg-gray-900 border-t border-gray-800 mt-12">  
+    <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">  
+        &copy; 2025 Lino. Web3 Visual Strategist. Built with Gemini Canvas & Tailwind CSS.  
+    </div>  
+</footer>
 
-        const initTradeoffsChart = () => {
-            const ctx = document.getElementById('tradeoffsChart').getContext('2d');
-            tradeoffsChart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['Security', 'Liquidity', 'Staking Simplicity'],
-                    datasets: [{
-                        label: 'Focus Balance',
-                        data: tradeOffsData.default.chartData,
-                        backgroundColor: 'rgba(96, 165, 250, 0.2)',
-                        borderColor: 'rgba(96, 165, 250, 1)',
-                        pointBackgroundColor: 'rgba(96, 165, 250, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(96, 165, 250, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            angleLines: { color: chartGridColor },
-                            grid: { color: chartGridColor },
-                            pointLabels: { font: { size: 14, weight: 'bold' }, color: chartTextColor },
-                            ticks: {
-                                backdropColor: chartBackdropColor,
-                                stepSize: 2,
-                                color: chartTextColor
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 10
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                title: function(tooltipItems) {
-                                    const item = tooltipItems[0];
-                                    
+</body>  
+</html>  
