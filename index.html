@@ -1,0 +1,195 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Lino - Web3 Visual Strategist</title>  
+    <!-- Load Tailwind CSS CDN for modern styling -->  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <style>  
+        /* Custom styles for a dark, Web3-inspired look */  
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');  
+        body {  
+            font-family: 'Inter', sans-serif;  
+            background-color: #0d1117; /* Dark background, common in developer/crypto spaces */  
+            color: #e5e7eb;  
+        }  
+        .text-accent {  
+            color: #38bdf8; /* Sky blue accent color */  
+        }  
+        .bg-accent-gradient {  
+            background-image: linear-gradient(to right, #1d4ed8, #38bdf8); /* Blue gradient for CTA */  
+        }  
+        .project-card {  
+            transition: transform 0.3s, box-shadow 0.3s;  
+        }  
+        .project-card:hover {  
+            transform: translateY(-5px);  
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);  
+        }  
+        /* Custom animation for the header callout */  
+        @keyframes pulse-fade {  
+            0%, 100% { opacity: 0.7; }  
+            50% { opacity: 1; }  
+        }  
+        .ceo-callout {  
+            animation: pulse-fade 3s infinite;  
+        }  
+    </style>  
+</head>  
+<body class="bg-gray-900 min-h-screen antialiased">  <!-- Header & Navigation -->  
+<header class="p-4 md:px-8 shadow-lg bg-gray-900 sticky top-0 z-10 border-b border-gray-800">  
+    <div class="max-w-6xl mx-auto flex justify-between items-center">  
+        <div class="text-xl font-bold text-accent">LINO.VISUALS</div>  
+        <nav class="space-x-4">  
+            <a href="#projects" class="text-gray-400 hover:text-accent transition duration-200">Work</a>  
+            <a href="#expertise" class="text-gray-400 hover:text-accent transition duration-200">Expertise</a>  
+            <a href="#validation" class="text-gray-400 hover:text-accent transition duration-200">Validation</a>  
+            <!-- Direct link to your X profile for immediate contact -->  
+            <a href="https://x.com/franklino24" target="_blank" class="bg-accent-gradient text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition duration-200 shadow-md">  
+                DM Me on X  
+            </a>  
+        </nav>  
+    </div>  
+</header>  
+
+<main class="max-w-6xl mx-auto p-4 md:p-8">  
+
+    <!-- 1. Hero Section: Direct Value Proposition -->  
+    <section id="hero" class="text-center py-20 md:py-32">  
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight">  
+            LINO: <span class="text-accent block lg:inline">Translating Web3 Complexity</span>  
+            <span class="block">into Compelling Visuals.</span>  
+        </h1>  
+        <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">  
+            I design strategic **infographics** that demystify DeFi, DAOs, and blockchain systems for mass adoption and investor clarity.  
+        </p>  
+        <a href="#projects" class="bg-accent-gradient text-white px-8 py-3 text-lg rounded-xl font-bold hover:opacity-90 transition duration-300 transform hover:scale-105 inline-block shadow-lg">  
+            View Strategic Infographics  
+        </a>  
+    </section>  
+
+    <!-- 2. Testimonial/Validation Section (A+ Credibility) -->  
+    <section id="validation" class="py-16">  
+        <div class="bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl border-2 border-accent/50 text-center">  
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-accent ceo-callout">  
+                CEO-VALIDATED WORK  
+            </h2>  
+            <blockquote class="text-xl md:text-2xl italic text-gray-200 mb-6 max-w-4xl mx-auto">  
+                "Lino's visual breakdown of our dual-token system was accurate and compelling. His work was reposted and validated by the CEO of **Helium ($HNT).**"  
+            </blockquote>  
+            <p class="text-gray-400 font-semibold">— Direct Validation from a leading DePIN Protocol Executive</p>  
+        </div>  
+    </section>  
+
+    <!-- 3. Projects Section: Real Project Content -->  
+    <section id="projects" class="py-16 border-t border-gray-800 mt-12">  
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">Featured Visual Strategies</h2>  
+          
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">  
+              
+            <!-- Project Card 1: Helium Dual-Token Model -->  
+            <div class="project-card bg-gray-800 p-6 rounded-xl shadow-2xl">  
+                <div class="h-48 bg-gray-700 rounded-lg mb-4 flex items-center justify-center text-accent text-2xl font-mono">  
+                    [ Dual-Token Model Flow ]  
+                </div>  
+                <h3 class="text-2xl font-semibold text-white mb-2">Helium ($HNT) Tokenomics Flow</h3>  
+                <p class="text-gray-400 mb-4">A CEO-validated visual strategy clarifying the complex HNT and Data Credits dual-token model for investor and community comprehension.</p>  
+                <span class="inline-block bg-blue-900 text-blue-300 text-xs font-medium px-3 py-1 rounded-full">DePIN/Tokenomics</span>  
+            </div>  
+
+            <!-- Project Card 2: Bittensor Subnet Flow -->  
+            <div class="project-card bg-gray-800 p-6 rounded-xl shadow-2xl">  
+                <div class="h-48 bg-gray-700 rounded-lg mb-4 flex items-center justify-center text-accent text-2xl font-mono">  
+                    [ Subnet Liquidity Flow ]  
+                </div>  
+                <h3 class="text-2xl font-semibold text-white mb-2">Bittensor ($TAO) $\text{d}\tau\text{ao}$ Liquidity</h3>  
+                <p class="text-gray-400 mb-4">Diagramming the entire liquidity flow from Subnet rewards through the d$\tau$ao staking mechanism for high-value B2B presentations.</p>  
+                <span class="inline-block bg-purple-900 text-purple-300 text-xs font-medium px-3 py-1 rounded-full">AI/DeFi System Mapping</span>  
+            </div>  
+
+            <!-- Project Card 3: EigenLayer Restaking Strategy -->  
+            <div class="project-card bg-gray-800 p-6 rounded-xl shadow-2xl">  
+                <div class="h-48 bg-gray-700 rounded-lg mb-4 flex items-center justify-center text-accent text-2xl font-mono">  
+                    [ Restaking/Slashing Diagram ]  
+                </div>  
+                <h3 class="text-2xl font-semibold text-white mb-2">EigenLayer Restaking/Slashing Flow</h3>  
+                <p class="text-gray-400 mb-4">Clarifying the security model of pooled staked assets, demonstrating risk and reward pathways for a critical comms piece targeting AVS teams.</p>  
+                <span class="inline-block bg-green-900 text-green-300 text-xs font-medium px-3 py-1 rounded-full">Protocol Security/LSD</span>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- 4. Expertise Section: Detailed Skills -->  
+    <section id="expertise" class="py-16 border-t border-gray-800">  
+        <div class="text-center mb-12">  
+            <h2 class="text-4xl font-bold text-white mb-4">My Strategic Advantage</h2>  
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">  
+                I bridge the gap between complex Web3 technology and clear user communication.  
+            </p>  
+        </div>  
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">  
+            <div class="p-6 bg-gray-800 rounded-xl">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v14L9 19zm0 0l-4 2.5V8.5L9 6v13zm12-4l-4-2.5v-6L21 9v6z" />  
+                </svg>  
+                <h3 class="text-xl font-semibold mb-2 text-white">System Mapping</h3>  
+                <p class="text-gray-400">Deep understanding of tokenomics, smart contract flows, and DeFi protocols necessary for accurate visual translation.</p>  
+            </div>  
+            <div class="p-6 bg-gray-800 rounded-xl">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2h-1v2H9v-2h-1c-1.657 0-3-.895-3-2s1.343-2 3-2h1V8h2zm-2 0V6m0 4v2m0 2v2m-3-6h2m-2 4h2m6-4h-2m2 4h-2m-3-8l12-3M4 18l12-3" />  
+                </svg>  
+                <h3 class="text-xl font-semibold mb-2 text-white">Visual Storytelling</h3>  
+                <p class="text-gray-400">Designing visuals that reduce cognitive load, making complex concepts easy to grasp for investors, users, and the community.</p>  
+            </div>  
+            <div class="p-6 bg-gray-800 rounded-xl">  
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-accent mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">  
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />  
+                </svg>  
+                <h3 class="text-xl font-semibold mb-2 text-white">Data-Driven Design</h3>  
+                <p class="text-gray-400">Creating dynamic infographics and dashboards that effectively communicate real-time crypto market data and protocol metrics.</p>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- 5. Contact Section -->  
+    <section id="contact" class="py-16 border-t border-gray-800">  
+        <div class="max-w-xl mx-auto text-center">  
+            <h2 class="text-4xl font-bold text-white mb-4">Let's Build the Next Narrative</h2>  
+            <p class="text-xl text-gray-400 mb-8">  
+                Have a complex Web3 system that needs clear, strategic visual communication? Reach out—I'm ready to craft the perfect infographic.  
+            </p>  
+
+            <p class="text-lg text-white mb-6">  
+                The fastest way to reach me is directly on X:  
+            </p>  
+
+            <!-- Prominent X Link in Contact Section -->  
+            <a href="https://x.com/franklino24" target="_blank" class="w-full inline-block bg-accent-gradient text-white px-6 py-3 rounded-lg font-bold text-lg hover:opacity-90 transition duration-300 shadow-xl mb-8">  
+                DM Lino on X (franklino24)  
+            </a>  
+
+            <!-- Mock Contact Form (kept for professional look, though X is the primary CTA) -->  
+            <form class="space-y-4">  
+                <input type="text" placeholder="Your Name" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-accent focus:border-accent" required>  
+                <input type="email" placeholder="Your Work Email Address" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-accent focus:border-accent" required>  
+                <textarea rows="4" placeholder="How can I help you visualize your Web3 project?" class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:ring-accent focus:border-accent" required></textarea>  
+                <button type="submit" class="w-full bg-gray-700 text-gray-400 px-6 py-3 rounded-lg font-bold text-lg cursor-not-allowed" disabled>  
+                    Send Inquiry (DM on X preferred)  
+                </button>  
+            </form>  
+        </div>  
+    </section>  
+
+</main>  
+
+<!-- Footer -->  
+<footer class="p-4 md:p-8 bg-gray-900 border-t border-gray-800 mt-12">  
+    <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">  
+        &copy; 2025 Lino. Web3 Visual Strategist. Built with Gemini Canvas & Tailwind CSS.  
+    </div>  
+</footer>
+
+</body>  
+</html>  
